@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .page {
+        max-width: 1200px;
+        margin: auto;
+      }
+      .sliderTop {
+        overflow-x: scroll;
+        width: 100%;
+        height: 300px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        border-radius: 7px 7px 0px 0px;
+      }
+      .slide {
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        scroll-snap-align: center;
+        width: 100%;
+        height: 300px;
+        font-family: cursive;
+        font-size: 32px;
+      }
+      .slide:nth-of-type(1) {
+        background-color: #ff4545;
+      }
+      .slide:nth-of-type(2) {
+        background-color: green;
+      }
+      .slide:nth-of-type(3) {
+        background-color: blue;
+      }
+      .slide:nth-of-type(4) {
+        background-color: pink;
+      }
+      .slide:nth-of-type(5) {
+        background-color: #ffa000;
+      }
+
+      /* width */
+      ::-webkit-scrollbar {
+        width: 10px;
+        height: 4px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: black;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="sliderTop">
+        <div class="slide">SCROLL ME</div>
+        <div class="slide">SCROLL ME</div>
+        <div class="slide">SCROLL ME</div>
+        <div class="slide">SCROLL ME</div>
+        <div class="slide">SCROLL ME</div>
+      </div>
+    </div>
+
+    <script>
+      const scrollContainerx = document.querySelector(".sliderTop");
+
+      scrollContainerx.addEventListener("wheel", (evt) => {
+        evt.preventDefault();
+        scrollContainerx.scrollLeft += evt.deltaY * 7;
+      });
+    </script>
+  </body>
+</html>
